@@ -18,5 +18,6 @@ public class Rifle extends Gun {
         int randomNumber = random.nextInt(100 - 1) + 1;
         return randomNumber <= rifleAccuracy;
     }
+    //heey
 
 }
