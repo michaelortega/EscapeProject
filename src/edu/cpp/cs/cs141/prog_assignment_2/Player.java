@@ -4,6 +4,7 @@ package edu.cpp.cs.cs141.prog_assignment_2;
 public class Player implements ActiveAgents{
     private Gun selectedGun;
     public static int playerHealth  = 0;
+    private int currentStep = 0;
     
     public Player(){
        playerHealth = 20;
@@ -28,6 +29,14 @@ public class Player implements ActiveAgents{
 
     public boolean shoot() {
         return selectedGun.calculateHit();
+    }
+
+    void takeStep() {
+        currentStep+=1;
+    }
+    
+    public int getCurrentStep(){
+        return currentStep;
     }
    
 
