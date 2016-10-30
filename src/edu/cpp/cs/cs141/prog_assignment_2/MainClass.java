@@ -1,9 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package edu.cpp.cs.cs141.prog_assignment_2;
+
+import java.util.Scanner;
+
+import edu.cpp.cs.cs141.prog_assignment_2.menu.Menu;
+import edu.cpp.cs.cs141.prog_assignment_2.menu.WeaponMenu;
+import edu.cpp.cs.cs141.prog_assignment_2.menu.WelcomeMenu;
+import edu.cpp.cs.cs141.prog_assignment_2.model.Player;
+import edu.cpp.cs.cs141.prog_assignment_2.service.PathGenerationService;
+import edu.cpp.cs.cs141.prog_assignment_2.service.WeaponSelectionService;
 
 /**
  *
@@ -11,8 +15,19 @@ package edu.cpp.cs.cs141.prog_assignment_2;
  */
 public class MainClass {
     public static void main(String[] args) {
-        GameEngine gameEngine = new GameEngine();
-        UserInterface UI = new UserInterface(gameEngine);
-        UI.startGameLoop();
+    	WeaponSelectionService weaponSelectionService = new WeaponSelectionService();
+    	PathGenerationService pathGenerationService = new PathGenerationService();
+    	Player player = new Player();
+    	
+		Menu current = new WelcomeMenu();
+		current.display(); // Display welcome menu.
+		current = new WeaponMenu(player, weaponSelectionService, pathGenerationService); // First call to action
+
+		try(Scanner in = new Scanner(System.in)){
+			do {
+				current.display();
+				current = current.react(in.nextLine());
+			} while (current != null);
+    	}
     }
 }
