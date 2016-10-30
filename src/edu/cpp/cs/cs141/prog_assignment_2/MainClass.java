@@ -10,5 +10,9 @@ package edu.cpp.cs.cs141.prog_assignment_2;
  * @author Michael
  */
 public class MainClass {
-    
+    public static void main(String[] args) {
+        GameEngine gameEngine = new GameEngine();
+        UserInterface UI = new UserInterface(gameEngine);
+        UI.startGameLoop();
+    }
 }

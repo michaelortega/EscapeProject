@@ -5,10 +5,7 @@
  */
 package edu.cpp.cs.cs141.prog_assignment_2;
 
-/**
- *
- * @author Michael
- */
-public class ActiveAgents {
+public interface ActiveAgents {
+    public void takeDamage(int damageTaken);
     
 }

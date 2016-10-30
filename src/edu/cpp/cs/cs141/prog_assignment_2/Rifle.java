@@ -4,12 +4,13 @@ import java.util.Random;
 
 public class Rifle extends Gun {
 
-    private static final int rifleMaxAmmo = 10;
+    private static int rifleMaxAmmo = 10;
     private static final int rifleAccuracy = 65;
     private static final int rifleDamage = 2;
+    private static final String rifleName ="Rifle";
 
-    public Rifle(int Ammo, int accuracy, int gunDamage) {
-        super(rifleMaxAmmo,rifleAccuracy,rifleDamage);
+    public Rifle() {
+        super(rifleMaxAmmo,rifleAccuracy,rifleDamage, rifleName);
     }
 
     @Override
@@ -18,6 +19,6 @@ public class Rifle extends Gun {
         int randomNumber = random.nextInt(100 - 1) + 1;
         return randomNumber <= rifleAccuracy;
     }
-    //heey
+   
 
 }
